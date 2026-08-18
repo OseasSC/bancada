@@ -184,7 +184,11 @@ export default async function ArticlePage({
         </div>
 
         <div className="mt-10">
-          <MDXRemote source={article.body} components={mdxComponents} />
+          <MDXRemote
+            source={article.body}
+            components={mdxComponents}
+            options={{ blockJS: false }}
+          />
         </div>
 
         <div className="mt-8">
