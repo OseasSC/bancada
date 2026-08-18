@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="80" y="70" width="640" height="300" rx="8" fill="#2a2926"/>
+  <text x="100" y="110" font-family="Georgia, serif" font-size="16" fill="#f4f1ea">Motherboard · DIMM slots</text>
+  <rect x="120" y="150" width="28" height="180" fill="#0f5c56"/>
+  <rect x="170" y="150" width="28" height="180" fill="#6b6560"/>
+  <rect x="220" y="150" width="28" height="180" fill="#0f5c56"/>
+  <rect x="270" y="150" width="28" height="180" fill="#6b6560"/>
+  <text x="118" y="355" font-family="Georgia, serif" font-size="12" fill="#f4f1ea">A2</text>
+  <text x="168" y="355" font-family="Georgia, serif" font-size="12" fill="#f4f1ea">A1</text>
+  <text x="218" y="355" font-family="Georgia, serif" font-size="12" fill="#f4f1ea">B2</text>
+  <text x="268" y="355" font-family="Georgia, serif" font-size="12" fill="#f4f1ea">B1</text>
+  <text x="360" y="230" font-family="Georgia, serif" font-size="16" fill="#f4f1ea">Test one stick in the slot the manual marks as first.</text>
+  <text x="80" y="420" font-family="Georgia, serif" font-size="16" fill="#6b6560">No POST: isolate RAM before replacing the board.</text>
+</svg>

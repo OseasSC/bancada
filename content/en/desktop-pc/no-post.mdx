@@ -1,0 +1,65 @@
+---
+title: No POST (no beep, no logo)
+slug: no-post
+translationKey: no-post
+category: desktop-pc
+categories:
+  - desktop-pc
+  - hardware
+symptoms:
+  - Power LED on, no BIOS splash
+  - No beep codes, or a repeating beep pattern
+  - USB devices do not light, keyboard Caps Lock dead
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - black-screen
+  - ram-failure
+description: When the board never reaches firmware, isolate RAM, CPU power, and a clear CMOS — not Windows.
+howtoSteps:
+  - Confirm PSU switch and short-circuit safety
+  - Strip to CPU, one stick of RAM, onboard video
+  - Clear CMOS
+  - Test RAM slots one by one
+---
+
+POST is the firmware handshake. If you never see a logo, Windows is irrelevant. A technician strips the machine to the smallest configuration that can beep or display.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Power switch, outlet, and front-panel cable">
+<Step title="PSU and wall">
+Confirm the PSU rear switch is `I`, try another outlet, and another IEC cable. Cheap cables fail more often than people expect.
+</Step>
+<Step title="Front power button">
+If the LED never lights, the front-panel POWER SW cable may be on the wrong pins. Check the motherboard silkscreen.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="medium" time="15 min" title="Listen and look">
+<Step title="Beep / debug LEDs">
+Count beeps or read Q-LEDs (CPU / DRAM / VGA / BOOT). DRAM LED stuck is almost always memory seating or a dead stick.
+</Step>
+<Figure src="/images/desktop-pc/no-post/ram-slots.svg" alt="Motherboard DIMM slots labeled A2 A1 B2 B1" caption="Most manuals want the first stick in A2, not the slot closest to the CPU." />
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="25 min" title="Clear CMOS">
+<Warning>
+Use the jumper or the CMOS button with the PSU unplugged. Do not pry a coin cell with a metal screwdriver across the board.
+</Warning>
+<Step title="Reset firmware settings">
+Unplug, jump CLR_CMOS for 10 seconds (or remove the battery for 5 minutes), restore, and boot. Overclocks and wrong XMP are a common “no POST” after a tweak.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Minimal hardware boot" tools={["Phillips screwdriver"]}>
+<Step title="Breadboard the PC">
+Outside the case if needed: motherboard, CPU with cooler, one RAM stick in the primary slot, PSU, and onboard video. No RGB hubs, no extra USB devices, no storage.
+</Step>
+<Step title="Swap RAM then CPU power">
+Try each stick and each slot. Confirm the CPU 8-pin (and 4-pin if present) is fully seated. Still dead: board, CPU, or PSU — stop and bench-test with known-good parts.
+</Step>
+<StopIf>
+Do not short the PSU paperclip test unless you are trained — a failed PSU can damage the board. Do not open the PSU.
+</StopIf>
+</Solution>

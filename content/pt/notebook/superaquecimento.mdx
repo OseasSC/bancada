@@ -1,0 +1,65 @@
+---
+title: Notebook superaquecendo e desligando
+slug: superaquecimento
+translationKey: notebook-overheating
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - Notebook queima perto das saídas e fica lento
+  - Desliga sozinho sob carga
+  - Ventoinha grita mesmo ocioso
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - slow-pc
+  - gpu-artifacts
+description: Calor em notebook é fluxo de ar, poeira e pasta térmica — não um app de “otimização”.
+howtoSteps:
+  - Liberar saídas e usar superfície rígida
+  - Ver processo preso no Gerenciador de Tarefas
+  - Atualizar drivers de chipset e GPU
+  - Limpar ventoinhas; pasta só com treino
+---
+
+O notebook reduz desempenho e depois desliga quando não consegue expulsar calor. Corrija o fluxo de ar antes de comprar outra máquina.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Superfície, saídas e carga simples">
+<Step title="Pare de tampar a admissão">
+Use mesa rígida, não cama ou sofá. Deixe as saídas traseiras e laterais livres. Um suporte que levanta a traseira ajuda mais que um “cooler” barato com ventoinha morta.
+</Step>
+<Figure src="/images/notebook/overheating/vents.svg" alt="Notebook com saídas de ar destacadas" caption="Admissão bloqueada é o superaquecimento mais comum causado pelo dono." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Carga de software">
+<Step title="Veja quem esquenta o CPU">
+Abra o Gerenciador de Tarefas. Se um navegador, indexador ou processo suspeito ficar em 80%+, encerre a tarefa (só processo seu) e veja se a temperatura cai.
+</Step>
+<Step title="Plano de energia">
+Use Equilibrado. “Melhor desempenho” em notebook fino é temporizador de desligamento.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Firmware e drivers">
+<Step title="Atualizações do fabricante">
+Instale chipset, controlador embarcado e GPU do OEM — muitas vezes mudam a curva da ventoinha. Evite apps aleatórios de fan que brigam com o EC.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="60 min" title="Poeira, ventoinhas e pasta" tools={["Chave Phillips", "Álcool isopropílico 90%+"]}>
+<Warning>
+Parafusos da tampa são fáceis. Parafusos do heatpipe e pasta não são. Se nunca assentou um dissipador de notebook, pare na soprada curta de ar pelo exaustor.
+</Warning>
+<Step title="Soprar a poeira">
+Desligue e tire a energia. Jatos curtos pelo exaustor. Não gire a ventoinha em RPM absurdo com o bico — segure a hélice se ela estiver visível.
+</Step>
+<Step title="Trocar pasta">
+Só se você aceitar perder a garantia. Grão de arroz de pasta boa, pressão uniforme e ordem de parafusos do OEM. Pressão torta trinca die móvel.
+</Step>
+<StopIf>
+Continua desligando com o caminho de ar limpo: o módulo térmico ou a placa pode estar falhando. Isso é serviço de oficina.
+</StopIf>
+</Solution>

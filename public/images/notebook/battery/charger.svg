@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="90" y="160" width="140" height="90" rx="8" fill="#1c1b19"/>
+  <rect x="115" y="185" width="90" height="40" fill="#111"/>
+  <path d="M230 205 H340" stroke="#0f5c56" stroke-width="6"/>
+  <rect x="340" y="150" width="280" height="160" rx="16" fill="#1c1b19"/>
+  <circle cx="390" cy="230" r="10" fill="#7dffce"/>
+  <text x="360" y="280" font-family="Georgia, serif" font-size="14" fill="#f4f1ea">Brick LED</text>
+  <text x="90" y="400" font-family="Georgia, serif" font-size="16" fill="#6b6560">Confirm the charger LED before you suspect the battery pack.</text>
+</svg>

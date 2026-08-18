@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="70" y="60" width="660" height="330" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="90" y="100" font-family="Georgia, serif" font-size="18" fill="#1c1b19">Task Manager · Processes</text>
+  <rect x="90" y="130" width="620" height="28" fill="#0f5c56"/>
+  <text x="100" y="150" font-family="Georgia, serif" font-size="14" fill="#f4f1ea">Name                        CPU     Memory</text>
+  <text x="100" y="200" font-family="Georgia, serif" font-size="16" fill="#1c1b19">SearchHost                  48%     1.2 GB</text>
+  <text x="100" y="240" font-family="Georgia, serif" font-size="16" fill="#1c1b19">browser.exe                 22%     2.8 GB</text>
+  <text x="100" y="280" font-family="Georgia, serif" font-size="16" fill="#1c1b19">Antimalware Service         11%     0.4 GB</text>
+  <text x="70" y="430" font-family="Georgia, serif" font-size="16" fill="#6b6560">Sort by CPU, then by Memory. Fix the top offender first.</text>
+</svg>

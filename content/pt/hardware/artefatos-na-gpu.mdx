@@ -1,0 +1,59 @@
+---
+title: Artefatos na GPU e quedas
+slug: artefatos-na-gpu
+translationKey: gpu-artifacts
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+symptoms:
+  - Blocos coloridos, sparkles ou tearing em jogos e no desktop
+  - Queda de driver (`nvlddmkm` / `amdkmdag`)
+  - Artefatos que permanecem na BIOS ou no WinRE
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - black-screen
+  - driver-problems
+description: Se o lixo visual aparece antes do Windows, é a placa, a VRAM ou a energia — não configuração de jogo.
+howtoSteps:
+  - Confirmar artefatos fora do jogo
+  - Reencaixar cabos de energia e o slot PCIe
+  - Instalar o driver da GPU limpo
+  - Testar outra placa ou vídeo onboard
+---
+
+Artefatos que sobrevivem ao Modo de Segurança e à BIOS são hardware. Driver só entra se o lixo aparecer depois que o Windows carrega.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Onde os blocos aparecem?">
+<Step title="BIOS e WinRE">
+Entre no firmware. Se já houver sparkles, ignore fórum de Windows. Se só um jogo mostra, teste outra API ou outro título antes de comprar placa.
+</Step>
+<Figure src="/images/hardware/gpu/artifacts.svg" alt="Monitor com blocos coloridos de artefato" caption="Blocos e sparkles que ignoram o aplicativo são VRAM ou GPU clássicos." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Temperatura e cabos">
+<Step title="Plugues de energia">
+Cada conector PCIe da placa deve ser um cabo dedicado da fonte quando o fabricante pede. Adaptador barato em cadeia derruba a GPU sob carga.
+</Step>
+<Step title="Calor">
+Tire poeira das ventoinhas da placa. Throttle térmico com artefato muitas vezes é cooler solto ou entupido — desmonte só se aceitar o risco.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Isolar o driver">
+<Step title="Instalação limpa">
+Use o instalador do fabricante com a opção clean install, ou DDU no Modo de Segurança se o driver não permanece. Se o artefato continua no Modo de Segurança, pare de instalar driver.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Trocar a placa" tools={["Chave Phillips"]}>
+<Step title="GPU conhecida ou iGPU">
+Desconecte a fonte. Coloque outra placa ou use o vídeo onboard. Imagem limpa no onboard e suja na placa velha: troque a GPU. Suja em tudo: RAM, placa-mãe ou trilhos da fonte.
+</Step>
+<StopIf>
+Não asse GPU no forno. Não faça “reflow” com soprador térmico sem ser técnico de retrabalho — você levanta pad. Não abra a fonte.
+</StopIf>
+</Solution>

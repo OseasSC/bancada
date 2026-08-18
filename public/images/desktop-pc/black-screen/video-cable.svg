@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="70" y="140" width="220" height="140" fill="#1c1b19"/>
+  <text x="90" y="220" font-family="Georgia, serif" font-size="18" fill="#f4f1ea">GPU / board</text>
+  <rect x="510" y="120" width="220" height="180" fill="#1c1b19"/>
+  <rect x="530" y="140" width="180" height="120" fill="#111"/>
+  <text x="560" y="330" font-family="Georgia, serif" font-size="16" fill="#1c1b19">Monitor</text>
+  <path d="M290 210 H510" stroke="#0f5c56" stroke-width="8" fill="none"/>
+  <circle cx="290" cy="210" r="8" fill="#0f5c56"/>
+  <circle cx="510" cy="210" r="8" fill="#0f5c56"/>
+  <text x="330" y="195" font-family="Georgia, serif" font-size="16" fill="#0f5c56">HDMI / DP / VGA</text>
+  <text x="70" y="410" font-family="Georgia, serif" font-size="16" fill="#6b6560">Reseat both ends. Try another cable and another port.</text>
+</svg>

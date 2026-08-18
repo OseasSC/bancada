@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="80" y="90" width="640" height="250" rx="10" fill="#1c1b19"/>
+  <g fill="#f4f1ea">
+    <rect x="110" y="120" width="40" height="40"/>
+    <rect x="160" y="120" width="40" height="40"/>
+    <rect x="210" y="120" width="40" height="40"/>
+    <rect x="110" y="175" width="580" height="40"/>
+    <rect x="110" y="230" width="580" height="70"/>
+  </g>
+  <rect x="210" y="175" width="40" height="40" fill="#0f5c56"/>
+  <text x="80" y="400" font-family="Georgia, serif" font-size="16" fill="#6b6560">One dead key vs a whole row points to different faults.</text>
+</svg>

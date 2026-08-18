@@ -1,0 +1,65 @@
+---
+title: Sem POST (sem beep, sem logo)
+slug: sem-post
+translationKey: no-post
+category: desktop-pc
+categories:
+  - desktop-pc
+  - hardware
+symptoms:
+  - LED de energia aceso, sem splash da BIOS
+  - Sem beep, ou padrão de beep repetido
+  - USB não acende, Caps Lock do teclado morto
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - black-screen
+  - ram-failure
+description: Quando a placa não chega no firmware, isole RAM, energia do CPU e CMOS — o Windows ainda não existe.
+howtoSteps:
+  - Confirmar chave da fonte e botão frontal
+  - Reduzir a CPU, um pente de RAM e vídeo onboard
+  - Limpar CMOS
+  - Testar slots de RAM um a um
+---
+
+POST é o aperto de mão do firmware. Sem logo, o Windows é irrelevante. O técnico reduz a máquina à menor configuração que possa bipar ou mostrar imagem.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Chave da fonte, tomada e cabo do painel">
+<Step title="Fonte e parede">
+Confirme a chave traseira da fonte em `I`, teste outra tomada e outro cabo IEC. Cabo barato falha mais do que parece.
+</Step>
+<Step title="Botão frontal">
+Se o LED nunca acende, o cabo POWER SW pode estar no pino errado. Veja a silkscreen da placa-mãe.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="medium" time="15 min" title="Ouvir e olhar">
+<Step title="Beep / LEDs de debug">
+Conte os beeps ou leia os Q-LEDs (CPU / DRAM / VGA / BOOT). LED de DRAM aceso é quase sempre encaixe de memória ou pente morto.
+</Step>
+<Figure src="/images/desktop-pc/no-post/ram-slots.svg" alt="Slots DIMM da placa-mãe rotulados A2 A1 B2 B1" caption="A maioria dos manuais quer o primeiro pente em A2, não no slot mais perto do processador." />
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="25 min" title="Limpar CMOS">
+<Warning>
+Use o jumper ou o botão CMOS com a fonte desconectada. Não faça alavanca na bateria com chave de fenda por cima da placa.
+</Warning>
+<Step title="Resetar o firmware">
+Desconecte, faça o jumper CLR_CMOS por 10 segundos (ou tire a bateria por 5 minutos), recoloque e ligue. Overclock e XMP errado são “sem POST” clássico depois de um ajuste.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Boot com o mínimo de hardware" tools={["Chave Phillips"]}>
+<Step title="Montar fora do gabinete se preciso">
+Placa-mãe, CPU com cooler, um pente no slot principal, fonte e vídeo onboard. Sem hub RGB, sem USB extra, sem disco.
+</Step>
+<Step title="Trocar RAM e conferir o 8 pinos do CPU">
+Teste cada pente e cada slot. Confirme o 8 pinos (e o 4 pinos, se houver) totalmente encaixado. Ainda morto: placa, CPU ou fonte — pare e teste com peças conhecidas.
+</Step>
+<StopIf>
+Não faça o teste do clipe na fonte sem treino — fonte ruim pode matar a placa. Não abra a fonte.
+</StopIf>
+</Solution>

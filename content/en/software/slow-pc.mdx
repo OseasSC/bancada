@@ -1,0 +1,60 @@
+---
+title: PC is extremely slow
+slug: slow-pc
+translationKey: slow-pc
+category: software
+categories:
+  - software
+  - desktop-pc
+  - notebook
+symptoms:
+  - Desktop takes minutes to become usable
+  - Apps hitch while disk LED stays solid
+  - Fine yesterday, crawling today
+severity: low
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - disk-failure
+description: Sort Task Manager by CPU and disk, then storage health — not a “cleaner” suite.
+howtoSteps:
+  - Identify the top process in Task Manager
+  - Disable leftover startup apps
+  - Check disk type and SMART
+  - Replace a dying HDD or add RAM if you are actually out
+---
+
+Slowness is a resource. A technician names it (CPU, disk, RAM, thermal throttle) before installing anything.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Name the bottleneck">
+<Step title="Task Manager columns">
+Enable CPU, Memory, and Disk columns. Sort. One process at 100% disk or CPU is the job — Windows Update, SearchIndexer, a browser, or malware you already run (your own files only; do not “hack” someone else’s PC).
+</Step>
+<Figure src="/images/software/slow-pc/task-manager.svg" alt="Task Manager sorted by CPU usage" caption="Fix the top row. Do not disable half of Windows at random." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Startup and overlay junk">
+<Step title="Startup apps">
+Task Manager → Startup apps. Disable RGB suites, game launchers you do not use, and trial antivirus leftovers. Keep the OEM audio/chipset entries unless you know they are redundant.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Disk and search">
+<Step title="HDD versus SSD">
+If the system is still on a spinning disk, cloning to an SSD is the real fix. Defrag is not a miracle on an SSD — do not run old defrag advice there.
+</Step>
+<Step title="Search indexer">
+A stuck `SearchHost` after an update is common. Let it finish on AC power, or rebuild the index from Windows Search settings.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="medium" time="60 min" title="Hardware limits">
+<Step title="RAM">
+If Memory sits at 90% with the desktop idle, add RAM or close the 40-tab browser. 4 GB on Windows 11 is a slow PC by design.
+</Step>
+<Step title="SMART">
+A failing SSD that is retrying every write feels like molasses. Check health; clone if the counters are ugly.
+</Step>
+</Solution>

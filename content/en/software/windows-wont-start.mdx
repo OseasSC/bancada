@@ -1,0 +1,65 @@
+---
+title: Windows will not start
+slug: windows-wont-start
+translationKey: windows-wont-start
+category: software
+categories:
+  - software
+  - desktop-pc
+symptoms:
+  - Boot loops before the desktop
+  - Automatic Repair cannot repair your PC
+  - Black screen after the spinning dots
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - bsod
+  - disk-failure
+description: Use WinRE in order — Safe Mode, Startup Repair, restore — before you wipe the disk.
+howtoSteps:
+  - Interrupt boot to open WinRE
+  - Try Safe Mode
+  - Startup Repair and System Restore
+  - Check the disk; repair BCD only if you understand it
+---
+
+A technician does not format first. WinRE exists so you can undo a bad update without killing the user profile.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Reach Windows Recovery">
+<Step title="Interrupt boot twice">
+Power on, and when the Windows logo appears, hold the power button to shut down. Repeat. The third start should open Automatic Repair / WinRE.
+</Step>
+<Figure src="/images/software/windows-boot/boot-options.svg" alt="Windows Recovery menu with Safe Mode highlighted" caption="Startup Settings is how you get Safe Mode when the desktop never appears." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Safe Mode and uninstall updates">
+<Step title="Safe Mode">
+Troubleshoot → Advanced → Startup Settings → Restart → press 4 or 5. If Safe Mode loads, uninstall the last Quality/Feature update from Settings or `wusa`.
+</Step>
+<Step title="Uninstall updates from WinRE">
+Troubleshoot → Advanced → Uninstall Updates. Try the last quality update first.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Startup Repair and Restore">
+<Step title="Startup Repair">
+Run it once. If it fails, do not loop it ten times — move to System Restore and pick a point from before the break.
+</Step>
+<Warning>
+Restore points disappear if System Protection was off. That is not a reason to format yet.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Disk health and boot files" tools={["Windows install USB"]}>
+<Step title="SMART and chkdsk">
+From Command Prompt in WinRE: `chkdsk C: /r` only if you accept a long run. A disk with reallocated sectors should be cloned, not “repaired forever”.
+</Step>
+<Step title="BCD">
+`bootrec /scanos` and `bootrec /rebuildbcd` are last-resort firmware/bootloader fixes. Wrong disk letters destroy dual-boot setups. If you do not know which volume is Windows, stop.
+</Step>
+<StopIf>
+If the drive is clicking, SMART failing, or `chkdsk` never finishes, image the disk with a shop tool first.
+</StopIf>
+</Solution>

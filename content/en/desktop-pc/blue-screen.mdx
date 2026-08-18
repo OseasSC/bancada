@@ -1,0 +1,68 @@
+---
+title: Blue screen (BSOD)
+slug: blue-screen
+translationKey: bsod
+category: desktop-pc
+categories:
+  - desktop-pc
+  - software
+symptoms:
+  - Windows stops on a blue screen with a stop code
+  - Random reboots while working
+  - Crash after a driver or Windows update
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - ram-failure
+description: Capture the stop code, then work from recent software changes to memory tests the way a technician would.
+howtoSteps:
+  - Photograph the stop code
+  - Boot Safe Mode and undo the last change
+  - Read Reliability Monitor / dump
+  - Run a memory test
+---
+
+A blue screen is Windows stopping on purpose. The stop code is the diagnosis. A technician does not reinstall Windows first.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Record the stop code and last change">
+<Step title="Photograph the screen">
+Write down the stop code (`IRQL_NOT_LESS_OR_EQUAL`, `MEMORY_MANAGEMENT`, `CRITICAL_PROCESS_DIED`). Note whether it happened after a GPU driver, RAM upgrade, or Windows Update.
+</Step>
+<Figure src="/images/desktop-pc/bsod/stop-code.svg" alt="Blue screen highlighting a stop code" caption="The stop code is more useful than the sad face. Search it together with the last driver you installed." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Safe Mode and undo the last change">
+<Step title="Enter Safe Mode">
+From the login screen hold Shift and click Restart, or interrupt boot twice to open WinRE. Open Startup Settings and choose Safe Mode.
+</Step>
+<Step title="Roll back">
+In Safe Mode, uninstall the last GPU/chipset driver or use System Restore to the point before the crash started. Pause Windows Update until the machine is stable.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Read the dump and Reliability Monitor">
+<Step title="Reliability Monitor">
+Search “Reliability Monitor” in Windows. Look at the red Xs on the day of the crash — they often name the faulting module (`nvlddmkm.sys`, `ntoskrnl.exe`).
+</Step>
+<Step title="Clean boot">
+Disable non-Microsoft startup items in `msconfig` / Task Manager. If the BSOD stops, enable them in batches to find the offender.
+</Step>
+<Warning>
+Do not download “driver booster” junkware. Get drivers from the motherboard, laptop, or GPU vendor.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="medium" time="90 min" title="Test RAM and storage" tools={["USB flash drive"]}>
+<Step title="Memory">
+Run Windows Memory Diagnostic or MemTest86 from USB. One error is enough to replace or reseat RAM — do not ignore it.
+</Step>
+<Step title="Storage">
+Check SMART. A dying disk can crash `ntfs.sys` or `critical_process_died`. Clone first if the disk is the family machine.
+</Step>
+<StopIf>
+Repeated MEMORY_MANAGEMENT or WHEA_UNCORRECTABLE_ERROR after a RAM test fails is hardware. Stop guessing in Windows.
+</StopIf>
+</Solution>

@@ -1,0 +1,62 @@
+---
+title: Keyboard not working
+slug: keyboard-not-working
+translationKey: notebook-keyboard
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - No keys register
+  - A whole row or Fn combinations fail
+  - Works in BIOS but not in Windows
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - windows-wont-start
+description: Separate a stuck Filter Keys setting from a ribbon cable and a drowned keyboard.
+howtoSteps:
+  - Rule out Filter Keys and an external keyboard
+  - Test in BIOS
+  - Reinstall the keyboard HID driver
+  - Reseat the ribbon; replace the top case
+---
+
+If an external USB keyboard works, the OS is alive. The built-in deck is then a ribbon, a controller, or liquid damage.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Accessibility and an external keyboard">
+<Step title="Filter Keys">
+Hold Right Shift for eight seconds and turn Filter Keys off. Also disable Sticky Keys if the machine types like a stuck modifier.
+</Step>
+<Figure src="/images/notebook/keyboard/keyboard.svg" alt="Laptop keyboard with one highlighted key" caption="A single dead key is often debris. A dead half-keyboard is usually the ribbon." />
+<Step title="USB keyboard">
+Plug in any USB keyboard. If it works, you can finish the software steps. If nothing works, including BIOS, treat it as board or EC.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="BIOS versus Windows">
+<Step title="Tap keys at the splash">
+Enter BIOS/UEFI with the built-in keyboard. If keys work there but not in Windows, it is a driver or Filter Keys, not the hardware deck.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="15 min" title="HID driver">
+<Step title="Device Manager">
+Uninstall the keyboard device (Keyboards section), then scan for hardware changes. Do not install a random “keyboard manager” from the web.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="50 min" title="Ribbon and top case" tools={["Phillips screwdriver", "Plastic pry tool"]}>
+<Warning>
+Liquid damage under the keys is corrosive. If the machine was spilled on, power off and take it to a shop — do not keep charging it.
+</Warning>
+<Step title="Reseat the keyboard flex">
+On many models the ribbon is under the palmrest. Photograph the ZIF lock, lift the latch, reseat, lock. If a row is still dead, the membrane is gone — replace the keyboard or the whole top case as the OEM sells it.
+</Step>
+<StopIf>
+Caps Lock LED dead in BIOS with a known-good USB keyboard also dead means a deeper board fault. Stop opening hinges for fun.
+</StopIf>
+</Solution>

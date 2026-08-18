@@ -1,0 +1,72 @@
+---
+title: Black screen (no image)
+slug: black-screen
+translationKey: black-screen
+category: desktop-pc
+categories:
+  - desktop-pc
+  - hardware
+symptoms:
+  - The PC powers on but the monitor stays black
+  - Fans spin, LEDs light, no BIOS logo
+  - 'Monitor shows "No signal"'
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - no-post
+  - gpu-artifacts
+description: Follow the bench order a technician uses when a desktop powers on but shows no picture — cables first, then GPU and RAM.
+howtoSteps:
+  - Confirm power and monitor input
+  - Reseat and swap the video cable
+  - Boot with onboard video or another GPU
+  - Isolate RAM and the graphics card
+---
+
+A black screen with fans spinning is usually display path, RAM, or a GPU that never initialized. Work in order. Do not skip to opening the case if the cable is in the motherboard while a discrete GPU is installed.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Confirm power, sleep, and the monitor">
+<Step title="Prove the PC is actually on">
+Watch the case power LED and the CPU fan. If they are dead, this is a power problem, not a black screen — stop here and check the outlet, PSU switch, and cable.
+</Step>
+<Figure src="/images/desktop-pc/black-screen/power-led.svg" alt="Desktop with a dark monitor and a lit power LED on the chassis" caption="A lit power LED means the board is receiving standby or full power. The fault is then video, not the wall outlet." />
+<Step title="Wake and input">
+Press the monitor's input button (HDMI / DisplayPort). Nudge the mouse and press Caps Lock — if the keyboard LED toggles, Windows may be running with a dead display path.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="Cables, ports, and a known-good screen">
+<Step title="Reseat both ends">
+Unplug the video cable from the PC and from the monitor, then seat it firmly. Use the GPU ports on the expansion card, not the motherboard I/O, if a discrete GPU is installed.
+</Step>
+<Figure src="/images/desktop-pc/black-screen/video-cable.svg" alt="Video cable between a graphics card and a monitor" caption="A discrete GPU owns the display. The motherboard HDMI port is often dark while the card is installed." />
+<Step title="Swap the display">
+Connect a second monitor or TV. If the second display works, the original panel or its cable is the fault.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Minimal boot: onboard video or another output">
+<Warning>
+If the machine is under warranty, opening it can void coverage. Photograph connectors before you unplug them.
+</Warning>
+<Step title="Clear a stuck output">
+Power off, hold the case power button for 15 seconds, then boot with only keyboard, mouse, and one display connected.
+</Step>
+<Step title="Onboard video">
+If the CPU has graphics, remove the discrete GPU (after unplugging the PSU) and use the motherboard HDMI/DP port. A picture here means the add-in card or its power cables are at fault.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Reseat GPU and test RAM" tools={["Phillips screwdriver"]}>
+<Step title="Reseat the GPU">
+Unplug the PC. Discharge by holding the power button 10 seconds. Remove the GPU, inspect the PCIe slot, reseat until the latch clicks, and reconnect every PCIe power plug from the PSU — never a molex adapter on a modern card if you can avoid it.
+</Step>
+<Step title="One RAM stick">
+Boot with a single stick in the slot the motherboard manual marks as primary (often A2). Swap sticks. No picture on any stick points to CPU, board, or PSU, not Windows.
+</Step>
+<StopIf>
+Stop if you smell burning, see swollen capacitors, or have no spare parts. Do not open the power supply. Take the PC to a technician.
+</StopIf>
+</Solution>
