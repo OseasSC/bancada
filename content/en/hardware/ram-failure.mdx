@@ -1,0 +1,59 @@
+---
+title: RAM failure
+slug: ram-failure
+translationKey: ram-failure
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+symptoms:
+  - Random reboots, garbled text, or BSOD MEMORY_MANAGEMENT
+  - POST DRAM LED stays on
+  - System sees less RAM than installed
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - no-post
+  - bsod
+description: Isolate sticks and slots. Memory errors are not fixed with a registry tweak.
+howtoSteps:
+  - Confirm how much RAM Windows reports
+  - Run Windows Memory Diagnostic
+  - Test one stick per slot
+  - Replace the bad DIMM; check the slot if all sticks fail in one place
+---
+
+RAM either posts or it lies to you with crashes. Binary isolation is the whole job.
+
+<Solution difficulty={1} risk="low" time="5 min" title="How much RAM is actually seen">
+<Step title="Settings → System → About">
+Compare installed vs usable. 16 GB bought and 8 GB shown often means a stick unseated or a channel off. Task Manager → Performance → Memory shows slots used.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Windows Memory Diagnostic">
+<Step title="Run it overnight if needed">
+Search “Windows Memory Diagnostic”, reboot, and wait. Any fail is a fail — do not keep the stick “because it only errored once”.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="One stick, one slot">
+<Figure src="/images/hardware/ram/dimm.svg" alt="One good DIMM next to a suspect DIMM" caption="Label the sticks with tape. Guessing which one failed wastes an hour." />
+<Step title="Rotate">
+Boot each stick alone in the primary slot, then try the other slots. A stick that fails everywhere is dead. Every stick failing in one slot is a board problem.
+</Step>
+<Warning>
+Unplug the PSU. Ground yourself. Do not force a DIMM; the notch only fits one way.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Replace and disable XMP if needed" tools={["Phillips screwdriver"]}>
+<Step title="Match kits">
+Replace with the same generation (DDR4 vs DDR5) and prefer a kit, not a random singleton mixed with an old stick. If a new kit only posts with XMP/EXPO off, the IMC or board QVL is the limit — that is not “bad Windows”.
+</Step>
+<StopIf>
+If DIMMs get hot enough to hurt or the board smells, stop. That is not a seating issue.
+</StopIf>
+</Solution>

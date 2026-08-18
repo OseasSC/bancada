@@ -1,0 +1,59 @@
+---
+title: GPU artifacts and crashes
+slug: gpu-artifacts
+translationKey: gpu-artifacts
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+symptoms:
+  - Colored blocks, sparkles, or tearing in games and on the desktop
+  - Driver crashes (`nvlddmkm` / `amdkmdag`)
+  - Artifacts that remain in BIOS or WinRE
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - black-screen
+  - driver-problems
+description: If the garbage is visible before Windows loads, it is the card, VRAM, or power — not a game setting.
+howtoSteps:
+  - Confirm artifacts outside the game
+  - Reseat power cables and the PCIe slot
+  - Clean-install the GPU driver
+  - Test another card or onboard video
+---
+
+Artifacts that survive Safe Mode and BIOS are hardware. Driver work is only for artifacts that appear after Windows loads.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Where do the blocks appear?">
+<Step title="BIOS and WinRE">
+Reboot to firmware. If sparkles are already there, skip Windows forums. If they only appear in one game, try another API or a different title before you buy a card.
+</Step>
+<Figure src="/images/hardware/gpu/artifacts.svg" alt="Monitor showing colored artifact blocks" caption="Blocks and sparkles that ignore the application are classic VRAM or GPU failure." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Temps and cables">
+<Step title="Power plugs">
+Each PCIe power connector on the card should be a dedicated PSU cable when the vendor says so. Daisy-chained cheap adapters brown-out a GPU under load.
+</Step>
+<Step title="Heat">
+Dust the card fans. Thermal throttle plus artifacts often means the cooler is detached or caked — that is a high-risk teardown.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Driver isolation">
+<Step title="Clean install">
+Use the GPU vendor installer with a clean install checkbox, or DDU in Safe Mode if the driver will not stay loaded. If artifacts persist in Safe Mode, stop installing drivers.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Swap the card" tools={["Phillips screwdriver"]}>
+<Step title="Known-good GPU or iGPU">
+Unplug the PSU. Swap in another card or use onboard video. Picture clean on onboard and dirty on the old card: replace the GPU. Dirty on everything: RAM, board, or PSU rails.
+</Step>
+<StopIf>
+Do not bake a GPU in an oven. Do not “reflow” with a heat gun unless you are a trained rework tech — you will lift pads. Do not open the PSU.
+</StopIf>
+</Solution>

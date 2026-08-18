@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="160" y="120" width="480" height="180" rx="10" fill="#1c1b19"/>
+  <rect x="190" y="150" width="300" height="120" fill="#2a2926"/>
+  <circle cx="560" cy="210" r="22" fill="#0f5c56"/>
+  <text x="200" y="220" font-family="Georgia, serif" font-size="18" fill="#f4f1ea">NVMe / SATA SSD</text>
+  <text x="160" y="360" font-family="Georgia, serif" font-size="16" fill="#6b6560">Check SMART health before you clone. Do not wait for a clicky disk.</text>
+</svg>

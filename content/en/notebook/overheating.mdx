@@ -1,0 +1,65 @@
+---
+title: Notebook overheating and shutdowns
+slug: overheating
+translationKey: notebook-overheating
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - Laptop burns near the vents and slows down
+  - Sudden shutdown under load
+  - Fan screams at idle
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - slow-pc
+  - gpu-artifacts
+description: Heat on a notebook is airflow, dust, and paste — not a Windows “optimization” app.
+howtoSteps:
+  - Clear vents and use a hard, flat surface
+  - Check Task Manager for a stuck process
+  - Update chipset and GPU drivers
+  - Clean fans; paste only if you are trained
+---
+
+Notebooks throttle then shut down when they cannot dump heat. Fix airflow before you buy a new machine.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Surface, vents, and a simple load check">
+<Step title="Stop cooking the intakes">
+Use a hard table, not a bed or sofa. Leave the rear and side vents open. A laptop stand that lifts the back helps more than a cheap “cooling pad” with dead fans.
+</Step>
+<Figure src="/images/notebook/overheating/vents.svg" alt="Notebook with highlighted intake vents" caption="Blocked intakes are the most common owner-caused overheat." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Software load">
+<Step title="See who is heating the CPU">
+Open Task Manager. If a browser, indexer, or miner-like process sits at 80%+, end the task (your own process only) and see if temperatures drop.
+</Step>
+<Step title="Power plan">
+Use Balanced. “Best performance” on a thin laptop is a shutdown timer.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Firmware and drivers">
+<Step title="Vendor updates">
+Install the OEM chipset, embedded controller, and GPU updates — they often change fan curves. Avoid random fan-control apps that fight the EC.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="60 min" title="Dust, fans, and paste" tools={["Phillips screwdriver", "Isopropyl alcohol 90%+"]}>
+<Warning>
+Bottom-case screws are easy. Heat-pipe screws and paste are not. If you have never seated a laptop heatsink, stop at dust-out with compressed air from the exhaust (short bursts).
+</Warning>
+<Step title="Blow dust out">
+Power off, remove power. Short bursts of air through the exhaust. Do not spin the fan at insane RPM with the nozzle — hold the fan if you can see it.
+</Step>
+<Step title="Repaste">
+Only if you accept warranty loss. Use a rice-grain of quality paste, even heatsink pressure, and the OEM screw order. Uneven pressure cracks mobile dies.
+</Step>
+<StopIf>
+Shutdowns continue after a clean fan path: the thermal module or the board may be failing. That is a shop job.
+</StopIf>
+</Solution>

@@ -1,0 +1,65 @@
+---
+title: Windows não inicia
+slug: windows-nao-inicia
+translationKey: windows-wont-start
+category: software
+categories:
+  - software
+  - desktop-pc
+symptoms:
+  - Loop de boot antes da área de trabalho
+  - O Reparo Automático não consegue reparar
+  - Tela preta depois das bolinhas
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - bsod
+  - disk-failure
+description: Use o WinRE na ordem — Modo de Segurança, Reparo de Inicialização, restauração — antes de apagar o disco.
+howtoSteps:
+  - Interromper o boot para abrir o WinRE
+  - Tentar Modo de Segurança
+  - Reparo de Inicialização e Restauração do Sistema
+  - Checar o disco; reparar BCD só se você entender
+---
+
+Técnico não formata primeiro. O WinRE existe para desfazer atualização ruim sem matar o perfil do usuário.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Chegar na Recuperação do Windows">
+<Step title="Interrompa o boot duas vezes">
+Ligue e, no logo do Windows, segure o botão power. Repita. A terceira partida deve abrir o Reparo Automático / WinRE.
+</Step>
+<Figure src="/images/software/windows-boot/boot-options.svg" alt="Menu de recuperação do Windows com Modo de Segurança destacado" caption="Configurações de Inicialização é o caminho para o Modo de Segurança quando a área de trabalho nunca aparece." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Modo de Segurança e desinstalar updates">
+<Step title="Modo de Segurança">
+Solucionar problemas → Avançado → Configurações de Inicialização → Reiniciar → 4 ou 5. Se carregar, desinstale o último update de Qualidade/Recurso nas Configurações ou no `wusa`.
+</Step>
+<Step title="Desinstalar pelo WinRE">
+Solucionar problemas → Avançado → Desinstalar atualizações. Comece pela última de qualidade.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Reparo de Inicialização e Restauração">
+<Step title="Reparo de Inicialização">
+Rode uma vez. Se falhar, não fique em loop — vá para Restauração do Sistema e escolha um ponto anterior à quebra.
+</Step>
+<Warning>
+Pontos de restauração somem se a Proteção do Sistema estava desligada. Isso ainda não é motivo para formatar.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Saúde do disco e arquivos de boot" tools={["USB de instalação do Windows"]}>
+<Step title="SMART e chkdsk">
+No Prompt do WinRE: `chkdsk C: /r` só se você aceitar uma execução longa. Disco com setores realocados deve ser clonado, não “consertado para sempre”.
+</Step>
+<Step title="BCD">
+`bootrec /scanos` e `bootrec /rebuildbcd` são último recurso. Letra de volume errada destrói dual-boot. Se você não sabe qual volume é o Windows, pare.
+</Step>
+<StopIf>
+Se o disco estala, o SMART falha ou o `chkdsk` nunca termina, faça imagem primeiro numa oficina.
+</StopIf>
+</Solution>

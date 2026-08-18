@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "title": "Como consertar PC e notebook: guias passo a passo de técnico",
+    "description": "Aprenda a resolver tela preta, tela azul, Windows que não inicia, notebook que não carrega e falhas de RAM, SSD e GPU. Passos de técnico, do mais fácil ao mais difícil, em português e inglês.",
+    "keywords": "como consertar PC, notebook não liga, tela preta, tela azul, BSOD, Windows não inicia, bateria não carrega, PC lento, driver, RAM, SSD, GPU"
+  },
+  "nav": {
+    "home": "Início",
+    "desktop-pc": "Desktop/PC",
+    "notebook": "Notebook",
+    "software": "Software",
+    "hardware": "Hardware",
+    "seeAll": "Ver todos os problemas",
+    "searchPlaceholder": "Buscar um problema…",
+    "searchAria": "Buscar problemas",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "language": "Idioma"
+  },
+  "home": {
+    "kicker": "Playbooks de técnico",
+    "title": "O que um técnico faria",
+    "lead": "Escolha a área do problema e siga as soluções em ordem de dificuldade — do cabo solto até a troca da peça. Sem chute e sem pular etapa.",
+    "browse": "Navegar por área",
+    "featured": "Problemas comuns",
+    "allGuides": "Todos os guias",
+    "searchHint": "Tela preta, tela azul, superaquecimento, Windows não inicia…",
+    "seoBody": "A Bancada reúne o que um técnico de bancada faria em um desktop ou notebook com defeito: checar cabo e energia, depois software, depois diagnóstico e só então abrir o equipamento. Os guias cobrem tela preta, tela azul (BSOD), PC que não dá POST, Windows que não inicia, notebook que esquenta ou não carrega, PC lento, drivers, RAM, SSD e artefatos na GPU.",
+    "faqTitle": "Perguntas frequentes",
+    "faq": [
+      {
+        "q": "Como escolher o guia certo para o meu PC?",
+        "a": "Comece pela área no menu: Desktop/PC, Notebook, Software ou Hardware. Abra o problema que mais parece com o sintoma (tela preta, tela azul, bateria, Windows) e siga os níveis do mais fácil ao mais difícil."
+      },
+      {
+        "q": "Preciso formatar o Windows de primeira?",
+        "a": "Não. Os guias começam por checagens simples e Modo de Segurança. Formatar ou trocar peça só entra depois, e só se os passos anteriores falharem."
+      },
+      {
+        "q": "O conteúdo é em português e inglês?",
+        "a": "Sim. Cada artigo tem versão em português e em inglês. O seletor de idioma no topo troca o texto mantendo o mesmo problema."
+      }
+    ]
+  },
+  "category": {
+    "problems": "Problemas nesta área",
+    "empty": "Ainda não há artigos nesta categoria.",
+    "desktop-pc": {
+      "title": "Desktop/PC",
+      "seoTitle": "Como resolver problemas de Desktop/PC (tela preta, BSOD, POST)",
+      "description": "Sem vídeo, sem boot, falha de POST e outros defeitos típicos de gabinete. Siga do cabo de vídeo até RAM e GPU.",
+      "intro": "Problemas de desktop costumam ser cabo, fonte, memória ou placa de vídeo — não o Windows. Use esta lista se o gabinete liga sem imagem, trava em tela azul ou não chega na BIOS."
+    },
+    "notebook": {
+      "title": "Notebook",
+      "seoTitle": "Como resolver problemas de notebook (bateria, calor, teclado)",
+      "description": "Bateria, calor, teclado e hardware portátil que o desktop não compartilha.",
+      "intro": "Notebooks falham de formas diferentes: ventoinha entupida, fonte fraca, teclado com flat solto. Comece pelo sintoma antes de abrir a tampa inferior."
+    },
+    "software": {
+      "title": "Software",
+      "seoTitle": "Como resolver problemas de software no Windows",
+      "description": "Inicialização do Windows, drivers, atualizações e máquinas lentas sem motivo óbvio.",
+      "intro": "Se o hardware dá POST e o problema é o sistema — Windows em loop, driver com ícone amarelo, PC lento — comece por aqui, sem formatar na primeira tentativa."
+    },
+    "hardware": {
+      "title": "Hardware",
+      "seoTitle": "Como diagnosticar falhas de hardware (RAM, SSD, GPU)",
+      "description": "RAM, armazenamento, GPU e energia, diagnosticados como em bancada.",
+      "intro": "Falha de memória, disco que some e artefato na GPU se isolam com teste binário: uma peça de cada vez, SMART e um componente conhecido."
+    }
+  },
+  "article": {
+    "symptoms": "Sintomas",
+    "updated": "Atualizado em",
+    "related": "Problemas relacionados",
+    "didNotHelp": "Ainda não resolveu?",
+    "didNotHelpBody": "Pare antes de forçar um passo de alto risco. Se os dados importam, faça uma imagem do disco e leve a um técnico.",
+    "breadcrumbHome": "Início",
+    "howto": "Passos de técnico",
+    "toc": "Neste guia",
+    "faqTitle": "Perguntas sobre este problema"
+  },
+  "difficulty": {
+    "1": "Nível 1 — Checagem",
+    "2": "Nível 2 — Software",
+    "3": "Nível 3 — Diagnóstico",
+    "4": "Nível 4 — Hardware"
+  },
+  "risk": {
+    "label": "Risco",
+    "low": "Baixo",
+    "medium": "Médio",
+    "high": "Alto"
+  },
+  "time": {
+    "label": "Tempo"
+  },
+  "tools": {
+    "label": "Ferramentas",
+    "none": "Nenhuma"
+  },
+  "severity": {
+    "low": "Incômodo",
+    "medium": "Atenção",
+    "high": "Crítico"
+  },
+  "disclaimer": {
+    "bannerTitle": "Use estes guias por sua conta e risco",
+    "bannerBody": "A Bancada publica procedimentos educativos de técnico. Você é responsável por danos, perda de dados ou impacto na garantia causados por seguir estes passos.",
+    "accept": "Entendi",
+    "readFull": "Ler o aviso completo",
+    "pageTitle": "Aviso legal",
+    "pageLead": "Leia isto antes de abrir o gabinete, rodar um comando ou trocar uma peça.",
+    "articleTitle": "Sem responsabilidade por danos causados pelo usuário",
+    "articleBody": "Estes passos são o que um técnico poderia tentar, escritos para educação. Você os executa no seu equipamento, por sua conta e risco. A Bancada não se responsabiliza por danos, perda de dados ou garantia anulada."
+  },
+  "privacy": {
+    "pageTitle": "Política de privacidade",
+    "pageLead": "Como a Bancada trata preferência de idioma, consentimento e cookies de publicidade."
+  },
+  "consent": {
+    "title": "Cookies e anúncios",
+    "body": "Usamos armazenamento essencial para idioma e para o aceite do aviso legal. Cookies de publicidade (Google AdSense) só carregam se você aceitar.",
+    "accept": "Aceitar anúncios",
+    "reject": "Recusar anúncios",
+    "privacy": "Política de privacidade"
+  },
+  "footer": {
+    "blurb": "Playbooks educativos de reparo para desktops e notebooks. Não substituem um técnico de bancada quando o risco é alto.",
+    "disclaimer": "Aviso legal",
+    "privacy": "Privacidade",
+    "sitemap": "Mapa do site",
+    "rss": "RSS",
+    "notice": "A Bancada não se responsabiliza por danos causados por usuários que seguirem estes guias."
+  },
+  "ads": {
+    "label": "Publicidade",
+    "placeholder": "Espaço de anúncio — o Google AdSense carrega após o consentimento de cookies."
+  },
+  "search": {
+    "noResults": "Nenhum problema corresponde à busca.",
+    "results": "Resultados",
+    "pageTitle": "Buscar guias",
+    "pageLead": "Encontre um problema de PC ou notebook pelo sintoma.",
+    "queryLabel": "Termo"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "body": "Esse guia não existe, ou o link está desatualizado.",
+    "home": "Voltar ao início"
+  },
+  "sitemapPage": {
+    "title": "Mapa do site",
+    "lead": "Índice de todos os guias de Desktop/PC, notebook, software e hardware, em português."
+  }
+}

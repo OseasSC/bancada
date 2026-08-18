@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#1a4a9c"/>
+  <text x="60" y="90" font-family="Georgia, serif" font-size="28" fill="#ffffff">: (</text>
+  <text x="60" y="140" font-family="Georgia, serif" font-size="22" fill="#ffffff">Your PC ran into a problem</text>
+  <text x="60" y="220" font-family="Georgia, serif" font-size="16" fill="#d6e4ff">Stop code</text>
+  <rect x="60" y="235" width="420" height="48" fill="#12357a"/>
+  <text x="76" y="266" font-family="Consolas, monospace" font-size="20" fill="#ffffff">CRITICAL_PROCESS_DIED</text>
+  <text x="60" y="340" font-family="Georgia, serif" font-size="16" fill="#d6e4ff">Photograph this code before you reboot.</text>
+</svg>

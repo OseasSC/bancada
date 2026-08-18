@@ -1,0 +1,59 @@
+---
+title: Problemas de driver e ícone amarelo
+slug: problemas-de-driver
+translationKey: driver-problems
+category: software
+categories:
+  - software
+  - hardware
+symptoms:
+  - Ícone amarelo no Gerenciador de Dispositivos
+  - Código 43 / Código 10 em um dispositivo
+  - Áudio, Wi-Fi ou GPU morreu depois de uma atualização
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - bsod
+  - gpu-artifacts
+description: Identifique o dispositivo e instale o pacote do OEM — não um pack de terceiros.
+howtoSteps:
+  - Ler o status no Gerenciador de Dispositivos
+  - Reverter o último driver
+  - Instalar o pacote do fabricante
+  - Limpar GPU com DDU só se você souber o fluxo do Modo de Segurança
+---
+
+O Windows Update é um instrumento grosso. Chipset e GPU ainda pertencem aos fabricantes da placa e da placa de vídeo.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Ler o Gerenciador de Dispositivos">
+<Step title="Achar o ícone">
+Exibir → Mostrar dispositivos ocultos. Anote o nome exato e o código (43, 10, 28, 31). 28 é driver ausente; 43 é o dispositivo relatando falha — pode ser hardware.
+</Step>
+<Figure src="/images/software/drivers/device-manager.svg" alt="Gerenciador de Dispositivos com avisos amarelos" caption="O ícone é um ponteiro, não uma licença para rodar pack de driver." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Reverter">
+<Step title="Aba Driver">
+Dispositivo → Propriedades → Driver → Reverter driver se o botão existir. Reinicie. É o conserto mais rápido depois de um driver de GPU ruim do Windows Update.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="25 min" title="Pacote OEM">
+<Step title="Baixar na fonte">
+Página de suporte da placa-mãe, do notebook, ou NVIDIA/AMD/Intel para a GPU. Chipset primeiro, depois GPU, depois Wi-Fi/áudio. Reinicie entre os grandes.
+</Step>
+<Warning>
+Evite “aceleradores de driver”. Têm histórico longo de quebrar máquina e empacotar lixo.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Instalação limpa da GPU">
+<Step title="DDU no Modo de Segurança">
+Só para GPU que não inicializa. Display Driver Uninstaller do site do autor, Modo de Segurança, depois o instalador do fabricante. Opção errada de DDU em notebook pode apagar o painel até reinstalar — leia os avisos.
+</Step>
+<StopIf>
+Código 43 que sobrevive a driver limpo em GPU de desktop costuma ser a placa, o riser ou o trilho da fonte. Pare de formatar o Windows.
+</StopIf>
+</Solution>

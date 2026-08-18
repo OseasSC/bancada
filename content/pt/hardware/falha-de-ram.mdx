@@ -1,0 +1,59 @@
+---
+title: Falha de memória RAM
+slug: falha-de-ram
+translationKey: ram-failure
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+symptoms:
+  - Reinícios aleatórios, texto corrompido ou BSOD MEMORY_MANAGEMENT
+  - LED DRAM do POST permanece aceso
+  - O sistema vê menos RAM do que foi instalada
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - no-post
+  - bsod
+description: Isole pentes e slots. Erro de memória não se conserta no registro.
+howtoSteps:
+  - Confirmar quanta RAM o Windows reporta
+  - Rodar o Diagnóstico de Memória
+  - Testar um pente por slot
+  - Trocar o DIMM ruim; checar o slot se todos falham no mesmo lugar
+---
+
+RAM ou dá POST ou mente com travamentos. Isolamento binário é o serviço inteiro.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Quanta RAM o sistema enxerga">
+<Step title="Configurações → Sistema → Sobre">
+Compare instalada vs utilizável. 16 GB comprados e 8 GB visíveis costuma ser pente mal encaixado ou canal desligado. Gerenciador de Tarefas → Desempenho → Memória mostra slots em uso.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Diagnóstico de Memória do Windows">
+<Step title="Deixe rodar à noite se preciso">
+Pesquise “Diagnóstico de Memória”, reinicie e espere. Qualquer falha é falha — não mantenha o pente “porque só errou uma vez”.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Um pente, um slot">
+<Figure src="/images/hardware/ram/dimm.svg" alt="Um DIMM bom ao lado de um suspeito" caption="Marque os pentes com fita. Chutar qual falhou perde uma hora." />
+<Step title="Rotacionar">
+Ligue cada pente sozinho no slot principal e depois nos outros. Pente que falha em todos está morto. Todos os pentes falhando num slot é problema da placa.
+</Step>
+<Warning>
+Desconecte a fonte. Descarregue eletricidade estática. Não force o DIMM; o recorte só entra de um lado.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Trocar e desligar XMP se preciso" tools={["Chave Phillips"]}>
+<Step title="Fechar kit">
+Troque na mesma geração (DDR4 vs DDR5) e prefira um kit, não um pente solto misturado com outro velho. Kit novo que só dá POST com XMP/EXPO desligado é limite do IMC ou da QVL da placa — não é “Windows ruim”.
+</Step>
+<StopIf>
+Se os DIMMs queimam o dedo ou a placa cheira, pare. Isso não é encaixe.
+</StopIf>
+</Solution>

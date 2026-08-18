@@ -1,0 +1,63 @@
+---
+title: Storage failure (SSD / HDD)
+slug: disk-failure
+translationKey: disk-failure
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+  - notebook
+symptoms:
+  - Files corrupt, copy jobs hang
+  - Clicking HDD or SSD that disappears from BIOS
+  - Windows repair loops after every boot
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - windows-wont-start
+  - slow-pc
+description: Check SMART and clone before the disk dies. Do not run destructive format tools as a first step.
+howtoSteps:
+  - Listen and look in BIOS for the drive
+  - Read SMART health
+  - Clone to a new drive
+  - Replace SATA/NVMe hardware if the new drive also vanishes
+---
+
+Data is the valuable part. A technician images first when SMART looks ugly.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Is the drive even detected?">
+<Step title="BIOS list">
+Reboot to firmware and see if the SSD/HDD is named. Missing in BIOS is cable, power, or a dead controller — not `chkdsk`.
+</Step>
+<Figure src="/images/hardware/disk/ssd.svg" alt="SSD with a simple health indicator" caption="Clone while the OS still mounts. Waiting for a clicky disk is how family photos die." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="SMART">
+<Step title="Read health">
+CrystalDiskInfo or the vendor tool (Samsung Magician, WD Dashboard). Reallocated, pending, or CRC counts climbing mean replace, not “format to fix”.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="60 min" title="Clone">
+<Step title="Image to a larger or equal disk">
+Use a reputable clone tool from a boot USB if Windows will not stay up. Verify files on the clone before you wipe the original.
+</Step>
+<Warning>
+Do not use unknown “repair” utilities that promise to resurrect a clicking HDD. They often finish the death.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Cables, NVMe slot, adapter" tools={["Phillips screwdriver"]}>
+<Step title="SATA">
+Swap the data cable and the SATA power lead. Try another motherboard port. A drive that only dies on one cable was the cable.
+</Step>
+<Step title="NVMe">
+Reseat the M.2 screw (too tight warps some drives). Try a second M.2 slot if the board has one. If a known-good NVMe also vanishes, the chipset lane or BIOS mode (RAID leftover) is next — shop territory if you are not comfortable in firmware.
+</Step>
+<StopIf>
+Clicking, grinding, or a drive that disconnects when it warms up: clone what you can and stop using it as the original.
+</StopIf>
+</Solution>

@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "title": "How to fix a PC or laptop: step-by-step technician guides",
+    "description": "Fix a black screen, blue screen, Windows that will not start, a laptop that will not charge, and RAM, SSD, or GPU faults. Technician steps from the easiest check to hardware work, in English and Portuguese.",
+    "keywords": "how to fix PC, laptop won't turn on, black screen, blue screen, BSOD, Windows won't start, battery not charging, slow PC, driver, RAM, SSD, GPU"
+  },
+  "nav": {
+    "home": "Home",
+    "desktop-pc": "Desktop/PC",
+    "notebook": "Notebook",
+    "software": "Software",
+    "hardware": "Hardware",
+    "seeAll": "See all problems",
+    "searchPlaceholder": "Search a problem…",
+    "searchAria": "Search problems",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "home": {
+    "kicker": "Technician playbooks",
+    "title": "What a technician would do",
+    "lead": "Pick a problem area, then follow solutions in order of difficulty — from a cable check to a part swap. No guesswork, no skipped steps.",
+    "browse": "Browse by area",
+    "featured": "Common problems",
+    "allGuides": "All guides",
+    "searchHint": "Black screen, blue screen, overheating, Windows won’t start…",
+    "seoBody": "Bancada is what a bench technician would try on a broken desktop or notebook: power and cables first, then software, then diagnostics, and only then opening the machine. Guides cover black screen, blue screen (BSOD), no POST, Windows that will not start, a laptop that overheats or will not charge, a slow PC, drivers, RAM, SSDs, and GPU artifacts.",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      {
+        "q": "How do I pick the right guide for my PC?",
+        "a": "Start with the header area: Desktop/PC, Notebook, Software, or Hardware. Open the problem that matches the symptom (black screen, blue screen, battery, Windows) and follow the levels from easiest to hardest."
+      },
+      {
+        "q": "Should I reinstall Windows first?",
+        "a": "No. The guides start with simple checks and Safe Mode. A wipe or a part swap only comes later, and only if the earlier steps fail."
+      },
+      {
+        "q": "Is the content in English and Portuguese?",
+        "a": "Yes. Every article has an English and a Portuguese version. The language switcher at the top keeps you on the same problem."
+      }
+    ]
+  },
+  "category": {
+    "problems": "Problems in this area",
+    "empty": "No articles in this category yet.",
+    "desktop-pc": {
+      "title": "Desktop/PC",
+      "seoTitle": "How to fix Desktop/PC problems (black screen, BSOD, POST)",
+      "description": "No video, no boot, POST failures, and other tower-specific faults. Work from the video cable through RAM and the GPU.",
+      "intro": "Desktop faults are usually a cable, PSU, memory, or graphics card — not Windows. Use this list if the tower powers on with no picture, blue-screens, or never reaches BIOS."
+    },
+    "notebook": {
+      "title": "Notebook",
+      "seoTitle": "How to fix laptop problems (battery, heat, keyboard)",
+      "description": "Battery, heat, keyboard, and portable hardware that desktops do not share.",
+      "intro": "Notebooks fail differently: clogged fans, a weak brick, a loose keyboard ribbon. Match the symptom before you open the bottom case."
+    },
+    "software": {
+      "title": "Software",
+      "seoTitle": "How to fix Windows software problems",
+      "description": "Windows startup, drivers, updates, and machines that crawl for no obvious reason.",
+      "intro": "If the hardware POSTs and the fault is the OS — a boot loop, a yellow bang, a slow PC — start here. Do not wipe Windows on the first try."
+    },
+    "hardware": {
+      "title": "Hardware",
+      "seoTitle": "How to diagnose hardware faults (RAM, SSD, GPU)",
+      "description": "RAM, storage, GPU, and power issues diagnosed the way a bench tech would.",
+      "intro": "Bad memory, a vanishing disk, and GPU artifacts are isolated with binary tests: one part at a time, SMART, and a known-good component."
+    }
+  },
+  "article": {
+    "symptoms": "Symptoms",
+    "updated": "Updated",
+    "related": "Related problems",
+    "didNotHelp": "Still broken?",
+    "didNotHelpBody": "Stop before you force a high-risk step. If data matters, image the disk first and take the machine to a technician.",
+    "breadcrumbHome": "Home",
+    "howto": "Technician steps",
+    "toc": "In this guide",
+    "faqTitle": "Questions about this problem"
+  },
+  "difficulty": {
+    "1": "Level 1 — Checks",
+    "2": "Level 2 — Software",
+    "3": "Level 3 — Diagnostics",
+    "4": "Level 4 — Hardware"
+  },
+  "risk": {
+    "label": "Risk",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "time": {
+    "label": "Time"
+  },
+  "tools": {
+    "label": "Tools",
+    "none": "None"
+  },
+  "severity": {
+    "low": "Nuisance",
+    "medium": "Attention",
+    "high": "Critical"
+  },
+  "disclaimer": {
+    "bannerTitle": "Use these guides at your own risk",
+    "bannerBody": "Bancada publishes educational technician procedures. You are responsible for any damage, data loss, or warranty impact caused by following them.",
+    "accept": "I understand",
+    "readFull": "Read the full disclaimer",
+    "pageTitle": "Disclaimer",
+    "pageLead": "Read this before you open a case, run a command, or replace a part.",
+    "articleTitle": "No liability for user-caused damage",
+    "articleBody": "These steps are what a technician might try, written for education. You perform them on your own equipment, at your own risk. Bancada is not responsible for damage, data loss, or voided warranties."
+  },
+  "privacy": {
+    "pageTitle": "Privacy policy",
+    "pageLead": "How Bancada handles language preference, consent, and advertising cookies."
+  },
+  "consent": {
+    "title": "Cookies and ads",
+    "body": "We use essential storage for language and your disclaimer acknowledgement. Advertising cookies (Google AdSense) load only if you accept.",
+    "accept": "Accept ads",
+    "reject": "Reject ads",
+    "privacy": "Privacy policy"
+  },
+  "footer": {
+    "blurb": "Educational repair playbooks for desktops and notebooks. Not a substitute for a bench technician when the risk is high.",
+    "disclaimer": "Disclaimer",
+    "privacy": "Privacy",
+    "sitemap": "Site map",
+    "rss": "RSS",
+    "notice": "Bancada is not liable for damage caused by users following these guides."
+  },
+  "ads": {
+    "label": "Advertisement",
+    "placeholder": "Ad slot — Google AdSense loads after cookie consent."
+  },
+  "search": {
+    "noResults": "No problems match that search.",
+    "results": "Results",
+    "pageTitle": "Search guides",
+    "pageLead": "Find a PC or laptop problem by symptom.",
+    "queryLabel": "Query"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "That guide does not exist, or the link is outdated.",
+    "home": "Back to home"
+  },
+  "sitemapPage": {
+    "title": "Site map",
+    "lead": "Index of every Desktop/PC, notebook, software, and hardware guide in English."
+  }
+}

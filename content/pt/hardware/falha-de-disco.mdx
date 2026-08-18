@@ -1,0 +1,63 @@
+---
+title: Falha de disco (SSD / HDD)
+slug: falha-de-disco
+translationKey: disk-failure
+category: hardware
+categories:
+  - hardware
+  - desktop-pc
+  - notebook
+symptoms:
+  - Arquivos corrompidos, cópias que travam
+  - HDD estalando ou SSD que some da BIOS
+  - Loop de reparo do Windows a cada boot
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - windows-wont-start
+  - slow-pc
+description: Veja o SMART e clone antes do disco morrer. Não formate como primeiro passo.
+howtoSteps:
+  - Ouvir e ver o drive na BIOS
+  - Ler a saúde SMART
+  - Clonar para um disco novo
+  - Trocar cabo/slot NVMe se o disco novo também sumir
+---
+
+O dado é a parte valiosa. O técnico gera imagem primeiro quando o SMART está feio.
+
+<Solution difficulty={1} risk="low" time="10 min" title="O drive sequer é detectado?">
+<Step title="Lista da BIOS">
+Entre no firmware e veja se o SSD/HDD aparece. Ausente na BIOS é cabo, energia ou controlador morto — não `chkdsk`.
+</Step>
+<Figure src="/images/hardware/disk/ssd.svg" alt="SSD com indicador simples de saúde" caption="Clone enquanto o sistema ainda monta. Esperar o disco estalar é como fotos de família morrem." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="SMART">
+<Step title="Ler a saúde">
+CrystalDiskInfo ou a ferramenta do fabricante (Samsung Magician, WD Dashboard). Setores realocados, pendentes ou CRC subindo significam troca, não “formatar para consertar”.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="60 min" title="Clonar">
+<Step title="Imagem para disco maior ou igual">
+Use ferramenta de clone confiável num USB de boot se o Windows não ficar de pé. Confira arquivos no clone antes de apagar o original.
+</Step>
+<Warning>
+Não use utilitário desconhecido que promete ressuscitar HDD estalando. Muitas vezes termina de matar.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="45 min" title="Cabos, slot NVMe, adaptador" tools={["Chave Phillips"]}>
+<Step title="SATA">
+Troque o cabo de dados e o de energia SATA. Teste outra porta da placa-mãe. Drive que só morre num cabo era o cabo.
+</Step>
+<Step title="NVMe">
+Reencaixe o parafuso M.2 (apertar demais empena alguns). Teste um segundo slot se a placa tiver. NVMe conhecido que também some aponta para lane do chipset ou modo RAID na BIOS — território de oficina se você não está confortável no firmware.
+</Step>
+<StopIf>
+Estalo, rangido ou disco que desconecta ao esquentar: clone o que der e pare de usar o original.
+</StopIf>
+</Solution>

@@ -1,0 +1,68 @@
+---
+title: Tela azul (BSOD)
+slug: tela-azul
+translationKey: bsod
+category: desktop-pc
+categories:
+  - desktop-pc
+  - software
+symptoms:
+  - O Windows para numa tela azul com código de parada
+  - Reinícios aleatórios durante o uso
+  - Travamento após driver ou atualização do Windows
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - ram-failure
+description: Anote o código de parada e avance das mudanças recentes de software até teste de memória, como na bancada.
+howtoSteps:
+  - Fotografar o código de parada
+  - Entrar em Modo de Segurança e desfazer a última mudança
+  - Ler o Monitor de Confiabilidade
+  - Testar a memória
+---
+
+A tela azul é o Windows parando de propósito. O código de parada é o diagnóstico. Um técnico não formata primeiro.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Registrar o código e a última mudança">
+<Step title="Fotografe a tela">
+Anote o código (`IRQL_NOT_LESS_OR_EQUAL`, `MEMORY_MANAGEMENT`, `CRITICAL_PROCESS_DIED`). Veja se foi depois de driver de GPU, upgrade de RAM ou Windows Update.
+</Step>
+<Figure src="/images/desktop-pc/bsod/stop-code.svg" alt="Tela azul destacando o código de parada" caption="O código vale mais que o rosto triste. Pesquise-o junto com o último driver instalado." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="20 min" title="Modo de Segurança e desfazer a última mudança">
+<Step title="Entrar no Modo de Segurança">
+Na tela de login, segure Shift e clique em Reiniciar, ou interrompa o boot duas vezes para abrir o WinRE. Em Configurações de Inicialização, escolha Modo de Segurança.
+</Step>
+<Step title="Reverter">
+No Modo de Segurança, desinstale o último driver de GPU/chipset ou use Restauração do Sistema até o ponto anterior às telas azuis. Pause o Windows Update até estabilizar.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="30 min" title="Ler o dump e o Monitor de Confiabilidade">
+<Step title="Monitor de Confiabilidade">
+Pesquise “Monitor de Confiabilidade”. Os X vermelhos no dia da queda costumam nomear o módulo (`nvlddmkm.sys`, `ntoskrnl.exe`).
+</Step>
+<Step title="Boot limpo">
+Desative itens de inicialização que não são da Microsoft no `msconfig` / Gerenciador de Tarefas. Se a tela azul parar, reative em lotes para achar o culpado.
+</Step>
+<Warning>
+Não baixe “acelerador de driver”. Use o site da placa-mãe, do notebook ou da GPU.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="medium" time="90 min" title="Testar RAM e armazenamento" tools={["Pen drive"]}>
+<Step title="Memória">
+Rode o Diagnóstico de Memória do Windows ou MemTest86 pelo USB. Um erro já justifica trocar ou reencaixar a RAM — não ignore.
+</Step>
+<Step title="Disco">
+Confira o SMART. Disco morrendo pode derrubar `ntfs.sys` ou `critical_process_died`. Faça clone primeiro se a máquina tiver dados importantes.
+</Step>
+<StopIf>
+MEMORY_MANAGEMENT ou WHEA_UNCORRECTABLE_ERROR repetido depois de RAM com erro é hardware. Pare de chutar no Windows.
+</StopIf>
+</Solution>

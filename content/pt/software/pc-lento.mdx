@@ -1,0 +1,60 @@
+---
+title: PC extremamente lento
+slug: pc-lento
+translationKey: slow-pc
+category: software
+categories:
+  - software
+  - desktop-pc
+  - notebook
+symptoms:
+  - A área de trabalho demora minutos para ficar usável
+  - Programas travam com o LED do disco aceso
+  - Ontem estava normal, hoje rasteja
+severity: low
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - disk-failure
+description: Ordene o Gerenciador de Tarefas por CPU e disco, depois saúde do armazenamento — não uma suíte “limpadora”.
+howtoSteps:
+  - Identificar o processo no topo
+  - Desativar sobras na inicialização
+  - Checar tipo de disco e SMART
+  - Trocar HDD morrendo ou adicionar RAM se realmente falta
+---
+
+Lentidão é um recurso. O técnico nomeia (CPU, disco, RAM, throttle térmico) antes de instalar qualquer coisa.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Nomear o gargalo">
+<Step title="Colunas do Gerenciador de Tarefas">
+Ative CPU, Memória e Disco. Ordene. Um processo em 100% de disco ou CPU é o serviço — Windows Update, SearchIndexer, navegador ou malware que você mesmo executa (só nos seus arquivos; não “invada” PC de terceiros).
+</Step>
+<Figure src="/images/software/slow-pc/task-manager.svg" alt="Gerenciador de Tarefas ordenado por CPU" caption="Conserte a linha do topo. Não desative metade do Windows no chute." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Inicialização e overlays">
+<Step title="Apps de inicialização">
+Gerenciador de Tarefas → Aplicativos de inicialização. Desative suítes RGB, launchers que você não usa e restos de antivírus trial. Mantenha áudio/chipset do OEM a menos que saiba que são redundantes.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Disco e pesquisa">
+<Step title="HDD versus SSD">
+Se o sistema ainda está em disco mecânico, clonar para SSD é o conserto de verdade. Desfragmentar não é milagre em SSD — não use conselho antigo aí.
+</Step>
+<Step title="Indexador">
+`SearchHost` preso depois de update é comum. Deixe terminar na tomada ou reconstrua o índice nas configurações de Pesquisa.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="medium" time="60 min" title="Limites de hardware">
+<Step title="RAM">
+Se a memória fica em 90% com o desktop ocioso, coloque RAM ou feche as 40 abas. 4 GB no Windows 11 é PC lento por projeto.
+</Step>
+<Step title="SMART">
+SSD falhando que retenta cada gravação parece lama. Veja a saúde; clone se os contadores estiverem feios.
+</Step>
+</Solution>

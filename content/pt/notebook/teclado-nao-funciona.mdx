@@ -1,0 +1,62 @@
+---
+title: Teclado não funciona
+slug: teclado-nao-funciona
+translationKey: notebook-keyboard
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - Nenhuma tecla responde
+  - Uma fileira inteira ou combinações Fn falham
+  - Funciona na BIOS, mas não no Windows
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - driver-problems
+  - windows-wont-start
+description: Separe Teclas de Filtro de cabo flat e teclado molhado.
+howtoSteps:
+  - Descartar Teclas de Filtro e testar teclado USB
+  - Testar na BIOS
+  - Reinstalar o driver HID
+  - Reencaixar o flat; trocar o top case
+---
+
+Se um teclado USB funciona, o sistema está vivo. O deck interno então é flat, controlador ou líquido.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Acessibilidade e teclado externo">
+<Step title="Teclas de Filtro">
+Segure Shift direito por oito segundos e desligue Teclas de Filtro. Desative também Teclas de Aderência se o notebook digitar como modificador preso.
+</Step>
+<Figure src="/images/notebook/keyboard/keyboard.svg" alt="Teclado de notebook com uma tecla destacada" caption="Uma tecla morta costuma ser sujeira. Meio teclado morto costuma ser o flat." />
+<Step title="Teclado USB">
+Conecte qualquer teclado USB. Se funcionar, você termina os passos de software. Se nada funcionar, inclusive na BIOS, trate como placa ou EC.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="BIOS versus Windows">
+<Step title="Teclas na splash">
+Entre na BIOS/UEFI com o teclado interno. Se as teclas funcionam ali e não no Windows, é driver ou Teclas de Filtro, não o hardware.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="15 min" title="Driver HID">
+<Step title="Gerenciador de Dispositivos">
+Desinstale o dispositivo de teclado e pesquise alterações de hardware. Não instale “gerenciador de teclado” da internet.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="50 min" title="Flat e top case" tools={["Chave Phillips", "Espátula plástica"]}>
+<Warning>
+Líquido sob as teclas é corrosivo. Se derramou algo, desligue e leve à oficina — não continue carregando.
+</Warning>
+<Step title="Reencaixar o flex">
+Em muitos modelos o flat fica sob o descanso de palma. Fotografe o trinco ZIF, levante, reencaixe, trave. Fileira ainda morta: a membrana acabou — troque o teclado ou o top case como o OEM vende.
+</Step>
+<StopIf>
+LED de Caps Lock morto na BIOS e USB também morto é falha mais fundo na placa. Pare de abrir dobradiça por esporte.
+</StopIf>
+</Solution>

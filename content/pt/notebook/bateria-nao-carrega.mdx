@@ -1,0 +1,65 @@
+---
+title: Bateria não carrega
+slug: bateria-nao-carrega
+translationKey: battery-not-charging
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - Ligado na tomada, continua descarregando
+  - Carga travada numa porcentagem
+  - Só funciona na fonte
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - notebook-overheating
+  - driver-problems
+description: Prove a fonte primeiro, depois firmware e o pacote. Bateria estufada é parada, não é DIY.
+howtoSteps:
+  - Confirmar LED da fonte e wattagem
+  - Testar outro carregador USB-C PD se for o caso
+  - Resetar o EC / calibração
+  - Trocar o pacote se a saúde estiver morta
+---
+
+“Não carrega” muitas vezes é fonte de 65 W numa máquina de 100 W, conector sujo ou pacote no fim da vida — não o Windows.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Provar o carregador">
+<Step title="LED e wattagem">
+Olhe o LED da fonte. Confira se a wattagem impressa no carregador OEM bate com o notebook (USB-C de 45 W não alimenta um gamer de 140 W).
+</Step>
+<Figure src="/images/notebook/battery/charger.svg" alt="Fonte com LED de status ao lado do notebook" caption="Se o LED da fonte está apagado, pare de culpar a bateria." />
+<Step title="Teste de folga">
+No conector barrel ou USB-C, cintilação ao mexer o cabo é porta ou cabo, não as células.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="Relatório de bateria do Windows">
+<Step title="Gerar o relatório">
+No Prompt como administrador, rode `powercfg /batteryreport` e abra o HTML na pasta do usuário. Compare capacidade de projeto com a carga plena atual.
+</Step>
+<Step title="Limites de software">
+A Economia de bateria não bloqueia carga. Um limite de “cuidados” em 80% no software do OEM parece defeito — veja Lenovo Vantage, MyASUS, Dell Power Manager, etc.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="15 min" title="Reset do EC">
+<Step title="Controlador embarcado">
+Desligue. Tire a fonte. Segure o botão power 30–40 segundos. Reconecte e ligue. Muitos casos de “conectado, não carrega” morrem aqui.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Troca do pacote">
+<Warning>
+Se a tampa inferior estiver arqueada ou o trackpad clicar torto, o pacote pode estar estufado. Pare. Lítio estufado é risco de fogo — não fure, não carregue, leve para descarte correto / oficina.
+</Warning>
+<Step title="Trocar pela peça OEM">
+Bata o FRU / modelo. Depois de instalar, deixe chegar a 100% uma vez. Pacote novo que recusa carga aponta para o circuito na placa — isso não é solda de primeira vez.
+</Step>
+<StopIf>
+USB-C folgado no chassi pede reparo em placa. Não encha de cola.
+</StopIf>
+</Solution>

@@ -1,0 +1,59 @@
+---
+title: Driver problems and yellow bangs
+slug: driver-problems
+translationKey: driver-problems
+category: software
+categories:
+  - software
+  - hardware
+symptoms:
+  - Yellow mark in Device Manager
+  - Code 43 / Code 10 on a device
+  - Audio, Wi-Fi, or GPU died after an update
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - bsod
+  - gpu-artifacts
+description: Identify the device, then install the OEM package — not a third-party driver pack.
+howtoSteps:
+  - Read the Device Manager status
+  - Roll back the last driver
+  - Install the vendor bundle
+  - Clean-install GPU with DDU only if you know the Safe Mode flow
+---
+
+Windows Update is a blunt instrument. Chipset and GPU still belong to the board and card vendors.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Read Device Manager">
+<Step title="Find the bang">
+View → Show hidden devices. Note the exact name and the error code (43, 10, 28, 31). Code 28 is missing driver; 43 is the device itself reporting failure — that can be hardware.
+</Step>
+<Figure src="/images/software/drivers/device-manager.svg" alt="Device Manager showing devices with a warning icon" caption="A bang is a pointer, not a license to run a driver-pack executable." />
+</Solution>
+
+<Solution difficulty={2} risk="low" time="15 min" title="Roll back">
+<Step title="Driver tab">
+Device → Properties → Driver → Roll Back Driver if the button is enabled. Then reboot. This is the fastest fix after a bad Windows Update GPU driver.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="25 min" title="OEM package">
+<Step title="Download from the source">
+Motherboard support page, laptop support page, or NVIDIA/AMD/Intel for the GPU. Install chipset first, then GPU, then Wi-Fi/audio. Reboot between the big ones.
+</Step>
+<Warning>
+Avoid “driver booster” products. They have a long history of breaking machines and bundling junk.
+</Warning>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Clean GPU install">
+<Step title="DDU in Safe Mode">
+Only for a GPU that will not initialize. Display Driver Uninstaller from the author’s site, Safe Mode, then the vendor installer. A wrong DDU option on a laptop can kill the panel until you reinstall — read the prompts.
+</Step>
+<StopIf>
+Code 43 that survives a clean driver on a desktop GPU is often the card, riser, or PSU rail. Stop reinstalling Windows.
+</StopIf>
+</Solution>

@@ -1,0 +1,72 @@
+---
+title: Tela preta (sem imagem)
+slug: tela-preta
+translationKey: black-screen
+category: desktop-pc
+categories:
+  - desktop-pc
+  - hardware
+symptoms:
+  - O PC liga, mas o monitor permanece preto
+  - Ventoinhas giram, LEDs acendem, sem logo da BIOS
+  - 'Monitor mostra "sem sinal"'
+severity: high
+updatedAt: "2026-08-18"
+related:
+  - no-post
+  - gpu-artifacts
+description: Ordem de bancada para desktop que liga sem imagem — cabos primeiro, depois GPU e RAM.
+howtoSteps:
+  - Confirmar energia e entrada do monitor
+  - Reencaixar e trocar o cabo de vídeo
+  - Boot com vídeo onboard ou outra GPU
+  - Isolar RAM e placa de vídeo
+---
+
+Tela preta com ventoinhas girando costuma ser caminho de vídeo, RAM ou GPU que não inicializou. Siga a ordem. Não abra o gabinete se o cabo está na placa-mãe enquanto existe GPU dedicada.
+
+<Solution difficulty={1} risk="low" time="5 min" title="Confirmar energia, sleep e o monitor">
+<Step title="Prove que o PC realmente ligou">
+Olhe o LED de energia do gabinete e a ventoinha do processador. Se estiverem mortos, o problema é energia, não tela preta — pare aqui e confira tomada, chave da fonte e cabo.
+</Step>
+<Figure src="/images/desktop-pc/black-screen/power-led.svg" alt="Desktop com monitor apagado e LED de energia aceso no gabinete" caption="LED de energia aceso indica que a placa recebe standby ou energia plena. A falha então é de vídeo, não da tomada." />
+<Step title="Acordar e trocar a entrada">
+Aperte o botão de entrada do monitor (HDMI / DisplayPort). Mexa o mouse e o Caps Lock — se o LED do teclado muda, o Windows pode estar rodando com o caminho de vídeo morto.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="Cabos, portas e uma tela conhecida">
+<Step title="Reencaixe as duas pontas">
+Desconecte o cabo de vídeo do PC e do monitor e encaixe de novo com firmeza. Use as portas da GPU, não as da placa-mãe, se houver placa dedicada.
+</Step>
+<Figure src="/images/desktop-pc/black-screen/video-cable.svg" alt="Cabo de vídeo entre a placa gráfica e o monitor" caption="A GPU dedicada é dona da imagem. A HDMI da placa-mãe costuma ficar escura com a placa instalada." />
+<Step title="Troque o display">
+Ligue um segundo monitor ou TV. Se o segundo funcionar, o painel original ou o cabo dele é o defeito.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="20 min" title="Boot mínimo: vídeo onboard ou outra saída">
+<Warning>
+Se o equipamento está na garantia, abrir pode anulá-la. Fotografe os conectores antes de desconectar.
+</Warning>
+<Step title="Limpar uma saída travada">
+Desligue, segure o botão power do gabinete por 15 segundos e ligue só com teclado, mouse e um display.
+</Step>
+<Step title="Vídeo onboard">
+Se o processador tem gráfico, remova a GPU (com a fonte desconectada) e use a HDMI/DP da placa-mãe. Imagem aqui significa que a placa de vídeo ou os cabos de energia dela falharam.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Reencaixar a GPU e testar RAM" tools={["Chave Phillips"]}>
+<Step title="Reencaixe a GPU">
+Desconecte o PC da tomada. Descarregue segurando o power por 10 segundos. Remova a GPU, inspecione o slot PCIe, reencaixe até o trinco clicar e reconecte todos os plugues PCIe da fonte — evite gambiarra com adaptador molex em placa moderna.
+</Step>
+<Step title="Um pente de RAM">
+Ligue com um único pente no slot que o manual marca como principal (muitas vezes A2). Troque os pentes. Sem imagem em nenhum aponta para CPU, placa ou fonte, não para o Windows.
+</Step>
+<StopIf>
+Pare se sentir cheiro de queimado, ver capacitor estufado ou não tiver peça reserva. Não abra a fonte. Leve a um técnico.
+</StopIf>
+</Solution>

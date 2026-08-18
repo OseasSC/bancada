@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img">
+  <rect width="800" height="450" fill="#f4f1ea"/>
+  <rect x="70" y="60" width="660" height="330" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="90" y="100" font-family="Georgia, serif" font-size="18" fill="#1c1b19">Device Manager</text>
+  <text x="110" y="150" font-family="Georgia, serif" font-size="16" fill="#1c1b19">Display adapters</text>
+  <text x="140" y="185" font-family="Georgia, serif" font-size="16" fill="#8b1e1e">!  Microsoft Basic Display Adapter</text>
+  <text x="110" y="230" font-family="Georgia, serif" font-size="16" fill="#1c1b19">Network adapters</text>
+  <text x="140" y="265" font-family="Georgia, serif" font-size="16" fill="#8b1e1e">!  Unknown device</text>
+  <text x="70" y="430" font-family="Georgia, serif" font-size="16" fill="#6b6560">Yellow bang = missing, wrong, or failed driver.</text>
+</svg>

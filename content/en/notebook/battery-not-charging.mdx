@@ -1,0 +1,65 @@
+---
+title: Battery will not charge
+slug: battery-not-charging
+translationKey: battery-not-charging
+category: notebook
+categories:
+  - notebook
+  - hardware
+symptoms:
+  - Plugged in, still discharging
+  - Charge stuck at a fixed percent
+  - Works only on the charger
+severity: medium
+updatedAt: "2026-08-18"
+related:
+  - notebook-overheating
+  - driver-problems
+description: Prove the brick first, then firmware and the pack. Swollen batteries are a stop, not a DIY.
+howtoSteps:
+  - Confirm brick LED and exact wattage
+  - Try another USB-C PD charger if the port is USB-C
+  - Reset embedded controller / battery calibration
+  - Replace the pack if health is dead
+---
+
+“Not charging” is often a 65 W brick on a 100 W machine, a dirty barrel jack, or a pack at end of life — not Windows.
+
+<Solution difficulty={1} risk="low" time="10 min" title="Prove the charger">
+<Step title="LED and rating">
+Look at the brick LED. Confirm the wattage printed on the OEM charger matches the laptop (a 45 W USB-C charger will not feed a 140 W gaming chassis).
+</Step>
+<Figure src="/images/notebook/battery/charger.svg" alt="Charger brick with a status LED next to a notebook" caption="If the brick LED is dark, stop blaming the battery." />
+<Step title="Wiggle test">
+At the barrel or USB-C port, a flicker when you move the cable is a port or cable, not the cells.
+</Step>
+</Solution>
+
+<Solution difficulty={2} risk="low" time="10 min" title="Windows battery report">
+<Step title="Generate the report">
+In an admin Command Prompt run `powercfg /batteryreport` and open the HTML in your user folder. Compare design capacity to full charge capacity.
+</Step>
+<Step title="Turn off battery saver myths">
+Battery Saver does not block charging. A 10% “care” limit in OEM software can look like a fault — check Lenovo Vantage, MyASUS, Dell Power Manager, etc.
+</Step>
+</Solution>
+
+<AdBetween />
+
+<Solution difficulty={3} risk="medium" time="15 min" title="EC reset">
+<Step title="Embedded controller">
+Power off. Disconnect charger. Hold the power button 30–40 seconds. Reconnect and boot. Many “plugged in, not charging” bugs die here.
+</Step>
+</Solution>
+
+<Solution difficulty={4} risk="high" time="40 min" title="Pack replacement">
+<Warning>
+If the bottom case is warped or the trackpad clicks unevenly, the pack may be swollen. Stop. Swollen lithium packs are a fire risk — do not puncture, do not charge, take them to proper disposal / a shop.
+</Warning>
+<Step title="Replace with the OEM part">
+Match the FRU / model. After install, let it charge to 100% once. If a new pack still refuses, the charge circuit on the board is the next suspect — that is not a first-time solder job.
+</Step>
+<StopIf>
+USB-C port loose in the chassis needs board-level repair. Do not flood it with glue.
+</StopIf>
+</Solution>
